@@ -10,6 +10,7 @@
     <div v-for="person in people">
       <h2>{{ person.name }}</h2>
       <p>{{ person.bio }}</p>
+      <button v-on:click="destroyPerson(person)">Destroy</button>
     </div>
   </div>
 </template>
@@ -60,6 +61,10 @@ export default {
         bioVisible: true
       };
       this.people.push(newPerson);
+    },
+    destroyPerson: function(inputPerson) {
+      var index = this.people.indexOf(inputPerson);
+      this.people.splice(index, 1);
     }
   },
   computed: {}
