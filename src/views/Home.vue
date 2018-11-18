@@ -6,7 +6,7 @@
       Bio: <input type="text" v-model="newPersonBio">
       <button v-on:click="createPerson()">Create person!</button>
     </div>
-    <h1>Interesting People</h1>
+    <h1>Interesting People ({{ people.length }} total)</h1>
     <div v-for="person in people">
       <h2>{{ person.name }}</h2>
       <p>{{ person.bio }}</p>
