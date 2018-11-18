@@ -8,8 +8,8 @@
     </div>
     <h1>Interesting People ({{ people.length }} total)</h1>
     <div v-for="person in people">
-      <h2>{{ person.name }}</h2>
-      <p>{{ person.bio }}</p>
+      <h2 v-on:click="person.bioVisible = !person.bioVisible">{{ person.name }}</h2>
+      <p v-if="person.bioVisible">{{ person.bio }}</p>
       <button v-on:click="destroyPerson(person)">Destroy</button>
     </div>
   </div>
