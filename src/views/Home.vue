@@ -1,5 +1,11 @@
 <template>
   <div class="home">
+    <h1>Add new person</h1>
+    <div>
+      Name: <input type="text" v-model="newPersonName">
+      Bio: <input type="text" v-model="newPersonBio">
+      <button v-on:click="createPerson()">Create person!</button>
+    </div>
     <h1>Interesting People</h1>
     <div v-for="person in people">
       <h2>{{ person.name }}</h2>
@@ -15,6 +21,8 @@
 export default {
   data: function() {
     return {
+      newPersonName: "",
+      newPersonBio: "",
       people: [
         {
           name: "Bob",
@@ -44,7 +52,16 @@ export default {
     };
   },
   created: function() {},
-  methods: {},
+  methods: {
+    createPerson: function() {
+      var newPerson = {
+        name: this.newPersonName,
+        bio: this.newPersonBio,
+        bioVisible: true
+      };
+      this.people.push(newPerson);
+    }
+  },
   computed: {}
 };
 </script>
